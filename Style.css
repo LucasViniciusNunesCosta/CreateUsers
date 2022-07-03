@@ -1,37 +1,71 @@
+:root {
+  --cor-preta: #0c0c0c;
+  --fonte: arial;
+  --cor-escura: #3F3F3F;
+  --azul-btn: #1C57E1;
+  --fundo: #E4E4E4;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    background-color: var(--fundo);
+}
+header{
+  background-color: #00ace2;
+  height: 10%;
+  width: 100%;
+  color: #e8f5f6;
+  text-align: center;
+  font-family: arial;
+  padding: 10px;
+}
+/*tabela de dados*/
 table{
-    border: 1px solid black;
-    font-family: arial;
+    font-family: var(--fonte);
     font-size: 12px;
-  }
-  th,ul{
-    padding: 35px;
-  }
-  ul{
-    border-bottom: 1px solid black;
-  }
-  table{
     margin-top: 30px;
     padding: 15px;
     background-color: #e8f5f6;
+    border-radius: 10px;
+    height: 80%;
+    background-color: #F0F0F0;
   }
-  div{
+  th,td{
+    padding: 35px;
+  }
+  td{
+    border-bottom: 1px solid var(--cor-preta);
+  }
+
+  /*bloco com input*/
+  div.tabela{
     display: flex;
     justify-content: center;
     align-items: center;
   }
   div.busca{
     background-color: #00ace2;
-    padding: 25px;
-  }
-  body{
-    margin: 0px;
-    background-color: #004067;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
   }
   input{
     padding: 10px;
     border: none;
+    width: 30%;
     margin-right: 5px;
+    border-radius: 5px;
+    
   }
   button{
     padding: 10px;
+    color: #3F3F3F;
+    margin-right: 5px;
+    border: 0;
+  }
+  button:hover{
+    opacity: 80%;
   }

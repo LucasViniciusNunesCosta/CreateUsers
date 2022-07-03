@@ -19,18 +19,21 @@ function NewUser() {
         pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
     }
 
-    //escrevendo na tela
-    var nomecompleto = document.getElementById("nomeComp").innerHTML;
-    nomecompleto = nomecompleto + "<ul>" + nome + "</ul>";
-    document.getElementById("nomeComp").innerHTML = nomecompleto;
+    //adicionando novas linhas
+    const tbody = document.getElementById("registros");
+    const linha = document.createElement("tr");
+    const coluna1 = document.createElement("td");
+    const coluna2 = document.createElement("td");
+    const coluna3 = document.createElement("td");
 
-    var listauser = document.getElementById("user").innerHTML;
-    listauser = listauser + "<ul>" + user + "</ul>";
-    document.getElementById("user").innerHTML = listauser;
+    tbody.appendChild(linha);
 
-    var listapass = document.getElementById("pass").innerHTML;
-    listapass = listapass + "<ul>" + pass.toUpperCase() + "</ul>";
-    document.getElementById("pass").innerHTML = listapass;
-
+    linha.appendChild(coluna1);
+    coluna1.innerText = nome;
+    linha.appendChild(coluna2);
+    coluna2.innerText = user;
+    linha.appendChild(coluna3);
+    coluna3.innerText = pass.toUpperCase();
+    
     document.getElementById("nomecompleto").value = "";
 }
