@@ -42,8 +42,3 @@ a{
 a:hover{
     opacity: 80%;
 }
-.container h1{
-    color: var(--cor-escura);
-    text-align: center;
-    font-family: arial;
-}
