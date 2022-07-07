@@ -5,52 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style.css">
+    <meta name="author" content="Lucas Vinicius Nunes Da Costa">
+    <link rel="stylesheet" href="Style-Menu.css">
 
     <title>Criação de usuários</title>
 </head>
 
 <body>
-    <script src="Script.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="jquery.btechco.excelexport.js"></script>
-    <script src="jquery.base64.js"></script>
-    <header>
-        <h1>Criação de usuários</h1>
-    </header>
-    <div class="busca">
-        <input type="text" id="nomecompleto" placeholder="Nome completo">
-        <button type="button" onClick="NewUser()">Enviar</button>
-        <button type="button" id="btnExport" onClick="baixarPlanilha()">Exportar planilha</button>
+<div class="container">
+    <div class="box">
+        <a href="UserSL.html">SHIFT LIS</a>
+        <a href="UserCS.html">CEAC SUL</a>
     </div>
-    <div class="tabela">
-        <table id="tabela">
-            <thead>
-                <th>Nome Completo</th>
-                <th>Usuário</th>
-                <th>Senha</th>
-            </thead>
-            <tbody id="registros">
-                <!--Os usuários são inseridos aqui via JS-->
-            </tbody>
-        </table>
-    </div>
-    <script>
-        const date = new Date();
-        const dia = date.getDate();
-        const mes = date.getMonth() + 1;
-        const data = " Dia " + dia + " mês " + mes;
-
-        $(document).ready(function () {
-            $("#btnExport").click(function () {
-                $("#tabela").btechco_excelexport({
-                    containerid: "tabela"
-                    , datatype: $datatype.Table
-                    , filename: 'Usuarios' +data
-                });
-            });
-        });
-    </script>
+</div>
 </body>
 
 </html>
