@@ -5,15 +5,17 @@ function NewUser() {
 
     //gerando user
     var lastname = usuario[usuario.length - 1].substring(0, 5);
-    var firstname = usuario[0].substring(0, 1);
-    console.log(firstname);
-    var secondname = usuario[1].substring(0, 1);
-    console.log(secondname);
     
+    if (lastname == "") {
+        lastname = usuario[usuario.length - 2].substring(0, 5);
+    }
+
+    var firstname = usuario[0].substring(0, 1);
+    var secondname = usuario[1].substring(0, 1);
+
     let verify = usuario[1].toUpperCase();
-    if ((verify == "DE" )||(verify == "DA" )||(verify == "DOS")||(verify == "DAS")){
+    if ((verify == "DE") || (verify == "DA") || (verify == "DOS") || (verify == "DAS")) {
         var secondname = usuario[2].substring(0, 1);
-        console.log(secondname);
     }
     var user = (lastname + firstname + secondname).toUpperCase();
 
@@ -39,7 +41,7 @@ function NewUser() {
     coluna2.innerText = user;
     linha.appendChild(coluna3);
     coluna3.innerText = pass.toUpperCase();
-    
+
     document.getElementById("nomecompleto").value = "";
 }
 
@@ -50,17 +52,19 @@ function NewUserSL() {
 
     //gerando user
     var lastname = usuario[usuario.length - 1].substring(0, 5);
-    var firstname = usuario[0].substring(0, 1);
-    console.log(firstname);
-    var secondname = usuario[1].substring(0, 1);
-    console.log(secondname);
-    
-    let verify = usuario[1].toUpperCase();
-    if ((verify == "DE" )||(verify == "DA" )||(verify == "DOS")||(verify == "DAS")){
-        var secondname = usuario[2].substring(0, 1);
-        console.log(secondname);
+
+    if (lastname == "") {
+        lastname = usuario[usuario.length - 2].substring(0, 5);
     }
-    var user = ("SL"+ lastname + firstname + secondname).toUpperCase();
+
+    var firstname = usuario[0].substring(0, 1);
+    var secondname = usuario[1].substring(0, 1);
+
+    let verify = usuario[1].toUpperCase();
+    if ((verify == "DE") || (verify == "DA") || (verify == "DOS") || (verify == "DAS") || (verify == "DO")) {
+        var secondname = usuario[2].substring(0, 1);
+    }
+    var user = ("SL" + lastname + firstname + secondname).toUpperCase();
 
     //adicionando novas linhas
     const tbody = document.getElementById("registros");
@@ -74,6 +78,6 @@ function NewUserSL() {
     coluna1.innerText = nome;
     linha.appendChild(coluna2);
     coluna2.innerText = user;
-    
+
     document.getElementById("nomecompleto").value = "";
 }
