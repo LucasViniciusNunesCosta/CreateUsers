@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lucas Vinicius Nunes Da Costa">
     <link rel="stylesheet" href="Style.css">
-    
+
     <title>Criação de usuários</title>
 </head>
 
 <body>
     <script src="Script.js"></script>
+    <script src="Script-importar-texto.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="jquery.btechco.excelexport.js"></script>
     <script src="jquery.base64.js"></script>
@@ -20,6 +21,8 @@
         <h1>Criação de usuários SL</h1>
     </header>
     <div class="busca">
+        <label for="arquivo">Importar text</label>
+        <input type="file" name="arquivo" id="arquivo" onchange="loadFile(this.files[0])">
         <input type="text" id="nomecompleto" placeholder="Nome completo">
         <button type="button" onClick="NewUserSL()">Enviar</button>
         <button type="button" id="btnExport" onClick="baixarPlanilha()">Exportar planilha</button>
@@ -36,6 +39,12 @@
         </table>
     </div>
     <script>
+        async function loadFile(file) {
+            let text = await file.text();
+            var arquivo = text.split(/\r\n|\n/);
+            NewUserArquivoSL(arquivo);
+        }
+
         const date = new Date();
         const dia = date.getDate();
         const mes = date.getMonth() + 1;
@@ -46,7 +55,7 @@
                 $("#tabela").btechco_excelexport({
                     containerid: "tabela"
                     , datatype: $datatype.Table
-                    , filename: 'Usuarios' +data
+                    , filename: 'Usuarios' + data
                 });
             });
         });

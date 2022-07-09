@@ -12,6 +12,7 @@
 
 <body>
     <script src="Script.js"></script>
+    <script src="Script-importar-texto.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="jquery.btechco.excelexport.js"></script>
     <script src="jquery.base64.js"></script>
@@ -19,6 +20,8 @@
         <h1>Criação de usuários CS</h1>
     </header>
     <div class="busca">
+        <label for="arquivo">Importar text</label>
+        <input type="file" name="arquivo" id="arquivo" onchange="loadFile(this.files[0])">
         <input type="text" id="nomecompleto" placeholder="Nome completo">
         <button type="button" onClick="NewUser()">Enviar</button>
         <button type="button" id="btnExport" onClick="baixarPlanilha()">Exportar planilha</button>
@@ -36,17 +39,21 @@
         </table>
     </div>
     <script>
+        async function loadFile(file) {
+            let text = await file.text();
+            var arquivo = text.split(/\r\n|\n/);
+            NewUserArquivo(arquivo);
+        }
         const date = new Date();
         const dia = date.getDate();
         const mes = date.getMonth() + 1;
         const data = " Dia " + dia + " mês " + mes;
-
         $(document).ready(function () {
             $("#btnExport").click(function () {
                 $("#tabela").btechco_excelexport({
                     containerid: "tabela"
                     , datatype: $datatype.Table
-                    , filename: 'Usuarios' +data
+                    , filename: 'Usuarios' + data
                 });
             });
         });
